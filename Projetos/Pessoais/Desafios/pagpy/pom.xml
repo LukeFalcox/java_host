@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.devfalco</groupId>
-	<artifactId>eventos</artifactId>
+	<artifactId>pagpy</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>eventos</name>
-	<description>Backend para eventos tecnicos</description>
+	<name>pagpy</name>
+	<description>Api de pagamentos</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -41,7 +41,7 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
+			<artifactId>spring-boot-docker-compose</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
@@ -60,37 +60,23 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 		<dependency>
-    	<groupId>org.flywaydb</groupId>
-    	<artifactId>flyway-core</artifactId>
-    	<version>9.8.1</version>
-		</dependency>
-
-		<dependency>
-    	<groupId>com.amazonaws</groupId>
-    	<artifactId>aws-java-sdk-s3</artifactId>
-    	<version>1.12.320</version>
-		</dependency>
-
-		<dependency>
-    <groupId>javax.xml.bind</groupId>
-    <artifactId>jaxb-api</artifactId>
-    <version>2.3.1</version>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-api</artifactId>
+    <version>0.11.5</version>
 </dependency>
-		<dependency>
-    	<groupId>org.glassfish.jaxb</groupId>
-    	<artifactId>jaxb-runtime</artifactId>
-    	<version>3.0.2</version>
-		</dependency>
-		<dependency>
-    	<groupId>org.glassfish.jaxb</groupId>
-    	<artifactId>jaxb-core</artifactId>
-    	<version>3.0.2</version>
-		</dependency>
-
-
-
+<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-impl</artifactId>
+    <version>0.11.5</version>
+    <scope>runtime</scope>
+</dependency>
+<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-jackson</artifactId>
+    <version>0.11.5</version>
+    <scope>runtime</scope>
+</dependency>
 	</dependencies>
 
 	<build>

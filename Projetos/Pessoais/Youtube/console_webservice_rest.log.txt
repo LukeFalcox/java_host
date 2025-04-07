@@ -1,0 +1,273 @@
+Connectando ao servidor streamer de arquivos... 
+b12d8be1868507e1379533b6c77c34fd
+        SC1010 AS SC1 (NOLOCK) 
+        ON SC1.C1_NUM = SCR.CR_NUM AND SC1.D_E_L_E_T_ = '' 
+    WHERE 
+        SCR.D_E_L_E_T_ = '' 
+        AND SCR.CR_EMISSAO BETWEEN '20240312' AND '20250326' 
+        AND SCR.CR_USER = '000018' 
+        AND SCR.CR_FILIAL <> 'XX' 
+        AND SCR.CR_DATALIB <> '' 
+        AND SCR.CR_TIPO IN ('SC','PC') 
+) 
+SELECT 
+    CR_FILIAL, 
+    CR_NUM, 
+    CR_TIPO, 
+    CR_USER, 
+    CR_APROV, 
+    CR_GRUPO, 
+    CR_ITGRP, 
+    CR_NIVEL, 
+    CR_STATUS, 
+    CR_EMISSAO, 
+    CR_TOTAL, 
+    CR_DATALIB, 
+    CR_USERLIB, 
+    CR_LIBAPRO, 
+    CR_VALLIB, 
+    CR_TIPOLIM, 
+    CR_WF, 
+    CR_MOEDA, 
+    CR_TXMOEDA, 
+    C1_ITEM, 
+    PEDSTATUS, 
+    C1_CC, 
+    C1_DESCRI, 
+    CR_OBS, 
+    RECSCR 
+FROM 
+    ItemRanked 
+WHERE 
+    rn = 1 
+ORDER BY 
+    CR_TIPO, 
+    CR_NUM DESC, 
+    C1_ITEM 
+
+2025-03-26T13:45:43.858432-03:00 1562792|Force Tenant: 
+2025-03-26T13:45:45.373574-03:00 1224911|[VDRPORT] 250326_134545 7F26B71F VSS0302 E sslRead fatal error 1 [SSL_ERROR_SSL]
+2025-03-26T13:45:45.376116-03:00 1224911|[VDRPORT] 250326_134545 7F26B71F VSS0789 E line=307 cmd=[SSL_read, alocated: 16384] error=336130204 msg=[error:1408F09C:SSL routines:ssl3_get_record:http request]
+2025-03-26T13:45:45.379020-03:00 1224911|[VDRPORT] 250326_134545 7F26B71F VSS0469 E ctx:602709 [@HANDSHAKE@] [VDR_SSL] onRecvHandshaking: error after sslRead
+2025-03-26T13:45:45.382504-03:00 1224911|[VDRPORT] 250326_134545 7F26B71F LPT0253 E ctx:602709 [@HANDSHAKE@] [VDR_LP] error 1 in server handshake
+2025-03-26T13:46:20.128465-03:00 1224348|
+-------------- Build Version --------------
+Application Server: 20.3.2.19
+
+
+-------------- APO Map List ---------------
+Users [01] MAP [26.53 MB.] APO [/outsourcing/totvs/protheus/apo_core/apo/ccitnf_prod_rest/portuguese/20250325145426558250/rpocustom.rpo] SYM [0.02 MB.] CODECACHE [0.25 MB.]
+Users [01] MAP [44.67 MB.] APO [/outsourcing/totvs/protheus/apo_core/apo/ccitnf_prod_rest/portuguese/20250325145426558250/tttm120.rpo] SYM [2.70 MB.] CODECACHE [8.52 MB.]
+Users [01] MAP [26.53 MB.] APO [/outsourcing/totvs/protheus/apo_core/apo/ccitnf_prod_rest/portuguese/20250326132403594008/rpocustom.rpo] SYM [0.02 MB.] CODECACHE [0.10 MB.]
+Users [01] MAP [42.14 MB.] APO [/outsourcing/totvs/protheus/apo_core/apo/ccitnf_prod_rest/portuguese/20250326132403594008/tttm120.rpo] SYM [2.70 MB.] CODECACHE [1.93 MB.]
+Users [03] MAP [26.53 MB.] APO [/outsourcing/totvs/protheus/apo_core/apo/ccitnf_prod_rest/portuguese/20250326134249481645/rpocustom.rpo] SYM [0.02 MB.] CODECACHE [0.07 MB.]
+Users [03] MAP [42.03 MB.] APO [/outsourcing/totvs/protheus/apo_core/apo/ccitnf_prod_rest/portuguese/20250326134249481645/tttm120.rpo] SYM [2.70 MB.] CODECACHE [1.83 MB.]
+Users [05] MAP [3.01 MB.] APO [/outsourcing/totvs/protheus/bin/appserver_wsrest/tlpp.rpo] SYM [0.01 MB.] CODECACHE [0.42 MB.]
+
+----------- Total Thread Count ------------
+                 Total Threads ... 27
+                        Thread ... 4
+                       WThread ... 10
+                     JobThread ... 4
+                  IPCJobThread ... 1
+                    SockServer ... 1
+                    HttpThread ... 2
+                    HttpServer ... 1
+                     RPCThread ... 4
+
+----------- Detailed Thread List ----------
+[   1224508][     575.227 Kb]	LSPULSE	THIS		FWLSMANAGERPULSE	CCITNF_PROD_REST	Tue Mar 25 15:50:12 2025	21:56:08	94671	1		[]
+[   1562666][    2571.781 Kb]	MAIN|HTTPREST|HTTPURI	---		---	CCITNF_PROD_REST	Wed Mar 26 13:45:01 2025	00:01:19	1962	34		[TLPPREST Time: 0.16854596 sec Transf: .T. URN: /rest/app01brw?DATA_DE=12/03/2024&DATA_ATE=26/03/2025&FIL_LIB=2&TP_APROV=0&isRefresh=true]
+[   1562792][   32752.125 Kb]	TP|HTTPREST|HTTPURI@01|TRUE	---		---	CCITNF_PROD_REST	Wed Mar 26 13:45:08 2025	00:01:12	325705	4900	1562382	[TLPPREST Time: 0.31352496 sec Transf: .F. URN: /rest]
+[   1562117][    2605.398 Kb]	MAIN|HTTPREST|HTTPURI	---		---	CCITNF_PROD_REST	Wed Mar 26 13:43:06 2025	00:03:14	6318	9		[TLPPREST Time: 0.00209403 sec Transf: .T. URN: /rest]
+[   1562269][   36079.867 Kb]	TP|HTTPREST|HTTPURI@01|TRUE	---		---	CCITNF_PROD_REST	Wed Mar 26 13:43:55 2025	00:02:25	571492	0	1561673	[TLPPREST Time: 1.09162307 sec Transf: .F. URN: /rest/api/oauth2/v1/token?grant_type=password&username=admin&password=tsm@admin]
+
+[     TOTAL][   74584.398 Kb][Num: 5         ]
+
+----------- Detailed Process List ---- (*1316)
+[   1224348][       0.000 Kb][         Thread][ tMemoryMonitor][]
+[   1224358][       0.000 Kb][     HttpServer][    tHttpServer][]
+[   1562867][       0.000 Kb][        WThread][   tWThreadBase][]
+[   1562850][       0.000 Kb][        WThread][   tWThreadBase][]
+[   1224363][       0.000 Kb][         Thread][ GenProcCleaner][]
+[   1562894][       0.000 Kb][        WThread][   tWThreadBase][]
+[   1224366][       0.070 Kb][         Thread][    tJobManager][]
+[   1224683][       0.000 Kb][         Thread][tMultiPortServer][]
+[   1224692][       0.000 Kb][     SockServer][    tMainServer][]
+[   1562871][       0.000 Kb][        WThread][   tWThreadBase][]
+[   1562879][       0.000 Kb][        WThread][   tWThreadBase][]
+[   1562882][       0.000 Kb][        WThread][   tWThreadBase][]
+[   1562931][       0.000 Kb][        WThread][   tWThreadBase][]
+[   1562934][       0.000 Kb][        WThread][   tWThreadBase][]
+[   1553486][       0.000 Kb][     HttpThread][   tHttpWThread][]
+[   1562965][       0.000 Kb][        WThread][   tWThreadBase][]
+[   1562971][       0.000 Kb][        WThread][   tWThreadBase][]
+[   1562196][       0.000 Kb][      RPCThread][     tRPCThread][]
+[   1562880][       0.000 Kb][      RPCThread][     tRPCThread][]
+[   1553485][       0.000 Kb][     HttpThread][   tHttpWThread][]
+[   1562793][       0.000 Kb][      RPCThread][     tRPCThread][]
+[   1562270][       0.000 Kb][      RPCThread][     tRPCThread][]
+
+[     TOTAL][       0.070 Kb][Num: 22        ][               ][]
+
+----------- Global List Info --------------
+                 IMAP Glb List ...        0.000 kB. Count 0
+             Variable Glb List ...     1544.241 kB. Count 3119
+              Session Glb List ...        0.000 kB. Count 0
+                   SymTab List ...     2218.837 kB. Count 133988 Hits 19075116
+                  TCP Glb List ... Count 0
+
+----------- Global Stack Info --------------
+
+----------- Global Queue Info --------------
+
+----------- Global File Queue Info --------------
+
+----------- Global Table and Hash Map Info --------------
+                Global Table X ...        0.335 Kb.	Keys X: 7
+                Global Table A ...        0.876 Kb.	Keys A: 2
+        Total (X + A + extras) ...      421.211 Kb.	Num Tables: 6
+
+                      Hash Map ...        0.000 Kb.
+
+----------- Multi Protocol Port - Allocation --------------
+------
+
+*** Message Pool Info ***
+Free             :2
+Posted In Accept :1
+Posted           :0
+Handled          :0
+Total            :3
+Buffer Memory    :61440bytes
+------
+
+*** Handle Pool Info ***
+Listen     = 1
+Accepting  = 1
+Close      = 1
+Total      = 3
+------
+                 IntClass List ...        0.000 Kb. Count 117
+                  IntFunc List ...        0.000 Kb. Count 1047
+                  APPMAP Array ...        0.000 Kb. Count 7
+
+
+----------- SmartHeap Pools Info ----------
+                   pooltString ...     5248.00 kB. Count 134385 Ok
+                  poolrContent ...    11456.00 kB. Count 225602 Ok
+                 pooltInstrVar ...    12160.00 kB. Count 137966 Ok
+                    pooltConst ...     4096.00 kB. Count  42049 Ok
+        poolrContentTypeSimple ...      448.00 kB. Count    406 Ok
+                  pooltDecimal ...      448.00 kB. Count      8 Ok
+                 pooltNamedVar ...     6784.00 kB. Count  24432 Ok
+                      pooltSum ...     2368.00 kB. Count  20440 Ok
+                  pooltCompare ...     1600.00 kB. Count   9762 Ok
+                 pooltLocalEnv ...     1664.00 kB. Count   2808 Ok
+        pooltInterFunctionCall ...     2368.00 kB. Count  13993 Ok
+       pooltDirectFunctionCall ...     1920.00 kB. Count  14818 Ok
+                   pooltApoReg ...    56000.00 kB. Count 394140 Ok
+               pooltAssignBase ...     2752.00 kB. Count  21061 Ok
+                pooltCodeBlock ...     1984.00 kB. Count   5660 Ok
+             pooltCodeBlockEnv ...      576.00 kB. Count    366 Ok
+             pooltCodeBlockRef ...     1216.00 kB. Count   1836 Ok
+           pooltCodeBlockInstr ...      640.00 kB. Count   1836 Ok
+                pooltClassData ...     1536.00 kB. Count   3968 Ok
+          pooltPrgFunctXRefEle ...    23360.00 kB. Count 731767 Ok
+               pooltIdentifier ...     1024.00 kB. Count   6593 Ok
+          pooltNamedVarXVarRef ...      832.00 kB. Count   8639 Ok
+               pooltParmDefDet ...     1664.00 kB. Count  22634 Ok
+                  pooltVarList ...     3008.00 kB. Count  24421 Ok
+                 pooltStatList ...     1664.00 kB. Count   7462 Ok
+                 pooltParmList ...     5056.00 kB. Count  36065 Ok
+             pooltArrayElement ...      640.00 kB. Count   2180 Ok
+                   pooltBaseIf ...     1792.00 kB. Count  12011 Ok
+                   pooltMethod ...     1152.00 kB. Count   3977 Ok
+               pooltFindObject ...     1024.00 kB. Count   5075 Ok
+                  pooltSelfVar ...      704.00 kB. Count   1377 Ok
+                pooltClassProp ...      512.00 kB. Count    107 Ok
+            pooltClassInstance ...      448.00 kB. Count    447 Ok
+               pooltMethodCall ...     1856.00 kB. Count   5203 Ok
+                   pooltReturn ...      640.00 kB. Count   2835 Ok
+                pooltStaticEnv ...     2112.00 kB. Count   3232 Ok
+               pooltPrivateEnv ...     1664.00 kB. Count   2639 Ok
+           pooltSrcSafeXRefEle ...    18560.00 kB. Count 386859 Ok
+                  poolMemLists ...    38912.00 kB. Count 153289 Ok
+                 poolMemStrRef ...    64448.00 kB. Count 130477 Ok
+                 poolMemStream ...     3520.00 kB. Count   3765 Ok
+           Default Memory Pool ...   233600.00 kB. Count 1536589 Ok
+
+           TOTAL POOLED MEMORY ...   524416.00 kB.
+
+
+----------- OS Memory Summary -------------
+MemTotal:        7672400 kB		MemFree:          235740 kB		
+Active:          1877576 kB		Inactive:        4618284 kB		
+SwapTotal:       4194300 kB		SwapFree:        2881924 kB		
+
+----------- APP Memory Summary ------------
+        Server Memory Capacity ...    32768.000 MB.
+      Service Addressed Memory ...     1841.391 MB.
+       Service Resident Memory ...      514.629 MB.
+
+2025-03-26T13:46:20.130041-03:00 1224348|
+[INFO ][SERVER] [Thread 1224348] [MEMORY] V-Load   0.06 - Peak  1913.28 MB. - SL 32768.00 MB.
+2025-03-26T13:46:20.131717-03:00 1224348|
+[INFO ][SERVER] [Thread 1224348] [MEMORY] R-Load   0.84 - Peak   612.79 MB. - SL   612.79 MB.
+2025-03-26T13:46:21.789324-03:00 1562269|[PALM] DashBoard-> Usuario: Admin (PLANETA) Grupo: cUserId:000000.
+2025-03-26T13:46:22.075374-03:00 1562977|
+[INFO ][SSL] SSL callback where:[16] ret:[1] state:[before SSL initialization] version:[TLSv1.3] cipher:[(NONE)]
+2025-03-26T13:46:22.077233-03:00 1562977|
+[INFO ][SSL] SSL_connect:before SSL initialization
+2025-03-26T13:46:22.078653-03:00 1562977|
+[INFO ][SSL] SSL_connect:SSLv3/TLS write client hello
+2025-03-26T13:46:22.086163-03:00 1562977|
+[INFO ][SSL] SSL_connect:SSLv3/TLS write client hello
+2025-03-26T13:46:22.087965-03:00 1562977|
+[INFO ][SSL] SSL_connect:SSLv3/TLS read server hello
+2025-03-26T13:46:22.089300-03:00 1562977|
+[INFO ][SSL] SSL_connect:TLSv1.3 read encrypted extensions
+2025-03-26T13:46:22.091108-03:00 1562977|
+[INFO ][SSL] SSL_connect:SSLv3/TLS read server certificate
+2025-03-26T13:46:22.093390-03:00 1562977|
+[INFO ][SSL] SSL_connect:TLSv1.3 read server certificate verify
+2025-03-26T13:46:22.094767-03:00 1562977|
+[INFO ][SSL] SSL_connect:SSLv3/TLS read finished
+2025-03-26T13:46:22.096510-03:00 1562977|
+[INFO ][SSL] SSL_connect:SSLv3/TLS write change cipher spec
+2025-03-26T13:46:22.098476-03:00 1562977|
+[INFO ][SSL] SSL_connect:SSLv3/TLS write finished
+2025-03-26T13:46:22.100078-03:00 1562977|
+[INFO ][SSL] SSL callback where:[32] ret:[1] state:[SSL negotiation finished successfully] version:[TLSv1.3] cipher:[TLS_AES_128_GCM_SHA256]
+2025-03-26T13:46:22.139960-03:00 1562977|
+[INFO ][SSL] SSL_connect:SSL negotiation finished successfully
+2025-03-26T13:46:22.142056-03:00 1562977|
+[INFO ][SSL] SSL_connect:SSL negotiation finished successfully
+2025-03-26T13:46:22.143216-03:00 1562977|
+[INFO ][SSL] SSL_connect:SSLv3/TLS read server session ticket
+2025-03-26T13:46:22.144496-03:00 1562977|
+[INFO ][SSL] SSL_connect:SSL negotiation finished successfully
+2025-03-26T13:46:22.145668-03:00 1562977|
+[INFO ][SSL] SSL_connect:SSL negotiation finished successfully
+2025-03-26T13:46:22.146923-03:00 1562977|
+[INFO ][SSL] SSL_connect:SSLv3/TLS read server session ticket
+2025-03-26T13:47:12.505643-03:00 1224911|[VDRPORT] 250326_134712 7F26B71F VSS0302 E sslRead fatal error 1 [SSL_ERROR_SSL]
+2025-03-26T13:47:12.507282-03:00 1224911|[VDRPORT] 250326_134712 7F26B71F VSS0789 E line=307 cmd=[SSL_read, alocated: 16384] error=336130204 msg=[error:1408F09C:SSL routines:ssl3_get_record:http request]
+2025-03-26T13:47:12.508750-03:00 1224911|[VDRPORT] 250326_134712 7F26B71F VSS0469 E ctx:602711 [@HANDSHAKE@] [VDR_SSL] onRecvHandshaking: error after sslRead
+2025-03-26T13:47:12.510119-03:00 1224911|[VDRPORT] 250326_134712 7F26B71F LPT0253 E ctx:602711 [@HANDSHAKE@] [VDR_LP] error 1 in server handshake
+2025-03-26T13:47:20.192223-03:00 1224348|
+-------------- Build Version --------------
+Application Server: 20.3.2.19
+
+
+-------------- APO Map List ---------------
+Users [01] MAP [26.53 MB.] APO [/outsourcing/totvs/protheus/apo_core/apo/ccitnf_prod_rest/portuguese/20250325145426558250/rpocustom.rpo] SYM [0.02 MB.] CODECACHE [0.25 MB.]
+Users [01] MAP [44.67 MB.] APO [/outsourcing/totvs/protheus/apo_core/apo/ccitnf_prod_rest/portuguese/20250325145426558250/tttm120.rpo] SYM [2.70 MB.] CODECACHE [8.52 MB.]
+Users [01] MAP [26.53 MB.] APO [/outsourcing/totvs/protheus/apo_core/apo/ccitnf_prod_rest/portuguese/20250326132403594008/rpocustom.rpo] SYM [0.02 MB.] CODECACHE [0.10 MB.]
+Users [01] MAP [42.14 MB.] APO [/outsourcing/totvs/protheus/apo_core/apo/ccitnf_prod_rest/portuguese/20250326132403594008/tttm120.rpo] SYM [2.70 MB.] CODECACHE [1.93 MB.]
+Users [03] MAP [26.53 MB.] APO [/outsourcing/totvs/protheus/apo_core/apo/ccitnf_prod_rest/portuguese/20250326134249481645/rpocustom.rpo] SYM [0.02 MB.] CODECACHE [0.11 MB.]
+Users [03] MAP [42.03 MB.] APO [/outsourcing/totvs/protheus/apo_core/apo/ccitnf_prod_rest/portuguese/20250326134249481645/tttm120.rpo] SYM [2.70 MB.] CODECACHE [1.85 MB.]
+Users [05] MAP [3.01 MB.] APO [/outsourcing/totvs/protheus/bin/appserver_wsrest/tlpp.rpo] SYM [0.01 MB.] CODECACHE [0.42 MB.]
+
+----------- Total Thread Count ------------
+                 Total Threads ... 27

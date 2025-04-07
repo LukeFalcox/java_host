@@ -1,0 +1,480 @@
+Connectando ao servidor streamer de arquivos... 
+b12d8be1868507e1379533b6c77c34fd
+        ROW_NUMBER() OVER (PARTITION BY SC1.C1_ITEM ORDER BY SCR.CR_EMISSAO DESC) AS rn 
+    FROM 
+        SCR010 AS SCR (NOLOCK) 
+    LEFT JOIN 
+        SC1010 AS SC1 (NOLOCK) 
+        ON SC1.C1_NUM = SCR.CR_NUM AND SC1.D_E_L_E_T_ = '' 
+    WHERE 
+        SCR.D_E_L_E_T_ = '' 
+        AND SCR.CR_EMISSAO BETWEEN '20240326' AND '20250326' 
+        AND SCR.CR_USER = '000000' 
+        AND SCR.CR_FILIAL <> 'XX' 
+        AND SCR.CR_DATALIB = '' AND SCR.CR_STATUS = '02' 
+        AND SCR.CR_TIPO IN ('SC','PC') 
+) 
+SELECT 
+    CR_FILIAL, 
+    CR_NUM, 
+    CR_TIPO, 
+    CR_USER, 
+    CR_APROV, 
+    CR_GRUPO, 
+    CR_ITGRP, 
+    CR_NIVEL, 
+    CR_STATUS, 
+    CR_EMISSAO, 
+    CR_TOTAL, 
+    CR_DATALIB, 
+    CR_USERLIB, 
+    CR_LIBAPRO, 
+    CR_VALLIB, 
+    CR_TIPOLIM, 
+    CR_WF, 
+    CR_MOEDA, 
+    CR_TXMOEDA, 
+    C1_ITEM, 
+    PEDSTATUS, 
+    C1_CC, 
+    C1_DESCRI, 
+    CR_OBS, 
+    RECSCR 
+FROM 
+    ItemRanked 
+WHERE 
+    rn = 1 
+ORDER BY 
+    CR_TIPO, 
+    CR_NUM DESC, 
+    C1_ITEM 
+
+2025-03-26T14:31:28.007196-03:00 1573835|Force Tenant: 
+2025-03-26T14:31:48.738638-03:00 1573835|[PALM] Browse de Aprova��o - Usuario Admin (PLANETA)  Grupo:  UserId: 000000
+2025-03-26T14:31:48.740914-03:00 1573835|WITH ItemRanked AS ( 
+    SELECT 
+        SCR.CR_FILIAL, 
+        SCR.CR_NUM, 
+        SCR.CR_TIPO, 
+        SCR.CR_USER, 
+        SCR.CR_APROV, 
+        SCR.CR_GRUPO, 
+        SCR.CR_ITGRP, 
+        SCR.CR_NIVEL, 
+        SCR.CR_STATUS, 
+        SCR.CR_EMISSAO, 
+        SCR.CR_TOTAL, 
+        SCR.CR_DATALIB, 
+        SCR.CR_USERLIB, 
+        SCR.CR_LIBAPRO, 
+        SCR.CR_VALLIB, 
+        SCR.CR_TIPOLIM, 
+        SCR.CR_WF, 
+        SCR.CR_MOEDA, 
+        SCR.CR_TXMOEDA, 
+        SC1.C1_ITEM, 
+        '' AS PEDSTATUS, 
+        SC1.C1_CC, 
+        SC1.C1_DESCRI, 
+        ISNULL(CAST(CAST(SCR.CR_OBS AS VARBINARY(8000)) AS VARCHAR(8000)), '') AS CR_OBS, 
+        SCR.R_E_C_N_O_ AS RECSCR, 
+        ROW_NUMBER() OVER (PARTITION BY SC1.C1_ITEM ORDER BY SCR.CR_EMISSAO DESC) AS rn 
+    FROM 
+        SCR010 AS SCR (NOLOCK) 
+    LEFT JOIN 
+        SC1010 AS SC1 (NOLOCK) 
+        ON SC1.C1_NUM = SCR.CR_NUM AND SC1.D_E_L_E_T_ = '' 
+    WHERE 
+        SCR.D_E_L_E_T_ = '' 
+        AND SCR.CR_EMISSAO BETWEEN '20240326' AND '20250326' 
+        AND SCR.CR_USER = '000000' 
+        AND SCR.CR_FILIAL <> 'XX' 
+        AND SCR.CR_DATALIB = '' AND SCR.CR_STATUS = '02' 
+        AND SCR.CR_TIPO IN ('SC','PC') 
+) 
+SELECT 
+    CR_FILIAL, 
+    CR_NUM, 
+    CR_TIPO, 
+    CR_USER, 
+    CR_APROV, 
+    CR_GRUPO, 
+    CR_ITGRP, 
+    CR_NIVEL, 
+    CR_STATUS, 
+    CR_EMISSAO, 
+    CR_TOTAL, 
+    CR_DATALIB, 
+    CR_USERLIB, 
+    CR_LIBAPRO, 
+    CR_VALLIB, 
+    CR_TIPOLIM, 
+    CR_WF, 
+    CR_MOEDA, 
+    CR_TXMOEDA, 
+    C1_ITEM, 
+    PEDSTATUS, 
+    C1_CC, 
+    C1_DESCRI, 
+    CR_OBS, 
+    RECSCR 
+FROM 
+    ItemRanked 
+WHERE 
+    rn = 1 
+ORDER BY 
+    CR_TIPO, 
+    CR_NUM DESC, 
+    C1_ITEM 
+
+2025-03-26T14:31:48.748253-03:00 1573835|Force Tenant: 
+2025-03-26T14:32:11.793556-03:00 1573835|Force Tenant: 
+2025-03-26T14:32:19.403024-03:00 1573835|[PALM] Browse de Aprova��o - Usuario Samuel Antonio Rabelo Pereira  Grupo: SOLICITAR TRANSPORTE UserId: 000061
+2025-03-26T14:32:19.404731-03:00 1573835|WITH ItemRanked AS ( 
+    SELECT 
+        SCR.CR_FILIAL, 
+        SCR.CR_NUM, 
+        SCR.CR_TIPO, 
+        SCR.CR_USER, 
+        SCR.CR_APROV, 
+        SCR.CR_GRUPO, 
+        SCR.CR_ITGRP, 
+        SCR.CR_NIVEL, 
+        SCR.CR_STATUS, 
+        SCR.CR_EMISSAO, 
+        SCR.CR_TOTAL, 
+        SCR.CR_DATALIB, 
+        SCR.CR_USERLIB, 
+        SCR.CR_LIBAPRO, 
+        SCR.CR_VALLIB, 
+        SCR.CR_TIPOLIM, 
+        SCR.CR_WF, 
+        SCR.CR_MOEDA, 
+        SCR.CR_TXMOEDA, 
+        SC1.C1_ITEM, 
+        '' AS PEDSTATUS, 
+        SC1.C1_CC, 
+        SC1.C1_DESCRI, 
+        ISNULL(CAST(CAST(SCR.CR_OBS AS VARBINARY(8000)) AS VARCHAR(8000)), '') AS CR_OBS, 
+        SCR.R_E_C_N_O_ AS RECSCR, 
+        ROW_NUMBER() OVER (PARTITION BY SC1.C1_ITEM ORDER BY SCR.CR_EMISSAO DESC) AS rn 
+    FROM 
+        SCR010 AS SCR (NOLOCK) 
+    LEFT JOIN 
+        SC1010 AS SC1 (NOLOCK) 
+        ON SC1.C1_NUM = SCR.CR_NUM AND SC1.D_E_L_E_T_ = '' 
+    WHERE 
+        SCR.D_E_L_E_T_ = '' 
+        AND SCR.CR_EMISSAO BETWEEN '20240326' AND '20250326' 
+        AND SCR.CR_USER = '000061' 
+        AND SCR.CR_FILIAL <> 'XX' 
+        AND SCR.CR_DATALIB = '' AND SCR.CR_STATUS = '02' 
+        AND SCR.CR_TIPO IN ('SC','PC') 
+) 
+SELECT 
+    CR_FILIAL, 
+    CR_NUM, 
+    CR_TIPO, 
+    CR_USER, 
+    CR_APROV, 
+    CR_GRUPO, 
+    CR_ITGRP, 
+    CR_NIVEL, 
+    CR_STATUS, 
+    CR_EMISSAO, 
+    CR_TOTAL, 
+    CR_DATALIB, 
+    CR_USERLIB, 
+    CR_LIBAPRO, 
+    CR_VALLIB, 
+    CR_TIPOLIM, 
+    CR_WF, 
+    CR_MOEDA, 
+    CR_TXMOEDA, 
+    C1_ITEM, 
+    PEDSTATUS, 
+    C1_CC, 
+    C1_DESCRI, 
+    CR_OBS, 
+    RECSCR 
+FROM 
+    ItemRanked 
+WHERE 
+    rn = 1 
+ORDER BY 
+    CR_TIPO, 
+    CR_NUM DESC, 
+    C1_ITEM 
+
+2025-03-26T14:32:19.424341-03:00 1573835|Force Tenant: 
+2025-03-26T14:32:23.163979-03:00 1224348|
+-------------- Build Version --------------
+Application Server: 20.3.2.19
+
+
+-------------- APO Map List ---------------
+Users [01] MAP [26.53 MB.] APO [/outsourcing/totvs/protheus/apo_core/apo/ccitnf_prod_rest/portuguese/20250325145426558250/rpocustom.rpo] SYM [0.02 MB.] CODECACHE [0.25 MB.]
+Users [01] MAP [44.67 MB.] APO [/outsourcing/totvs/protheus/apo_core/apo/ccitnf_prod_rest/portuguese/20250325145426558250/tttm120.rpo] SYM [2.70 MB.] CODECACHE [8.52 MB.]
+Users [04] MAP [26.53 MB.] APO [/outsourcing/totvs/protheus/apo_core/apo/ccitnf_prod_rest/portuguese/20250326141827918197/rpocustom.rpo] SYM [0.02 MB.] CODECACHE [0.13 MB.]
+Users [04] MAP [42.14 MB.] APO [/outsourcing/totvs/protheus/apo_core/apo/ccitnf_prod_rest/portuguese/20250326141827918197/tttm120.rpo] SYM [2.70 MB.] CODECACHE [2.04 MB.]
+Users [05] MAP [3.01 MB.] APO [/outsourcing/totvs/protheus/bin/appserver_wsrest/tlpp.rpo] SYM [0.01 MB.] CODECACHE [0.42 MB.]
+
+----------- Total Thread Count ------------
+                 Total Threads ... 28
+                        Thread ... 4
+                       WThread ... 9
+                     JobThread ... 4
+                  IPCJobThread ... 1
+                    SockServer ... 1
+                    HttpThread ... 4
+                    HttpServer ... 1
+                     RPCThread ... 4
+
+----------- Detailed Thread List ----------
+[   1573835][   42609.102 Kb]	TP|HTTPREST|HTTPURI@01|TRUE	---		---	CCITNF_PROD_REST	Wed Mar 26 14:30:12 2025	00:02:11	873100	8769	1572555	[TLPPREST Time: 0.22999787 sec Transf: .F. URN: /rest/app01brw]
+[   1224508][     575.227 Kb]	LSPULSE	THIS		FWLSMANAGERPULSE	CCITNF_PROD_REST	Tue Mar 25 15:50:12 2025	22:42:11	98019	1		[]
+[   1573563][    2603.422 Kb]	MAIN|HTTPREST|HTTPURI	---		---	CCITNF_PROD_REST	Wed Mar 26 14:30:03 2025	00:02:20	5176	0		[TLPPREST Time: 0.07041883 sec Transf: .T. URN: /rest/app01brw?isRefresh=true]
+[   1574049][   23206.008 Kb]	TP|HTTPREST|HTTPURI@01|TRUE	---		---	CCITNF_PROD_REST	Wed Mar 26 14:31:48 2025	00:00:35	12318	9098	1573858	[TLPPREST Time: 1.95538807 sec init]
+[   1574015][    2604.156 Kb]	MAIN|HTTPREST|HTTPURI	---		---	CCITNF_PROD_REST	Wed Mar 26 14:31:27 2025	00:00:56	1962	97		[TLPPREST Time: 0.00121808 sec Transf: .T. URN: /rest/app01brw]
+
+[     TOTAL][   71597.914 Kb][Num: 5         ]
+
+----------- Detailed Process List ---- (*1362)
+[   1224348][       0.000 Kb][         Thread][ tMemoryMonitor][]
+[   1224358][       0.000 Kb][     HttpServer][    tHttpServer][]
+[   1574076][       0.000 Kb][        WThread][   tWThreadBase][]
+[   1224363][       0.000 Kb][         Thread][ GenProcCleaner][]
+[   1224366][       0.070 Kb][         Thread][    tJobManager][]
+[   1224683][       0.000 Kb][         Thread][tMultiPortServer][]
+[   1224692][       0.000 Kb][     SockServer][    tMainServer][]
+[   1573836][       0.000 Kb][      RPCThread][     tRPCThread][]
+[   1574123][       0.000 Kb][        WThread][   tWThreadBase][]
+[   1573982][       0.000 Kb][        WThread][   tWThreadBase][]
+[   1574020][       0.000 Kb][        WThread][   tWThreadBase][]
+[   1574069][       0.000 Kb][        WThread][   tWThreadBase][]
+[   1574043][       0.000 Kb][        WThread][   tWThreadBase][]
+[   1574089][       0.000 Kb][        WThread][   tWThreadBase][]
+[   1574027][       0.000 Kb][        WThread][   tWThreadBase][]
+[   1573918][       0.000 Kb][      RPCThread][     tRPCThread][]
+[   1570574][       0.000 Kb][     HttpThread][   tHttpWThread][]
+[   1574088][       0.000 Kb][        WThread][   tWThreadBase][]
+[   1569933][       0.000 Kb][     HttpThread][   tHttpWThread][]
+[   1569934][       0.000 Kb][     HttpThread][   tHttpWThread][]
+[   1570578][       0.000 Kb][     HttpThread][   tHttpWThread][]
+[   1574050][       0.000 Kb][      RPCThread][     tRPCThread][]
+[   1574060][       0.000 Kb][      RPCThread][     tRPCThread][]
+
+[     TOTAL][       0.070 Kb][Num: 23        ][               ][]
+
+----------- Global List Info --------------
+                 IMAP Glb List ...        0.000 kB. Count 0
+             Variable Glb List ...     1544.241 kB. Count 3119
+              Session Glb List ...        0.000 kB. Count 0
+                   SymTab List ...     2218.837 kB. Count 133988 Hits 22157377
+                  TCP Glb List ... Count 0
+
+----------- Global Stack Info --------------
+
+----------- Global Queue Info --------------
+
+----------- Global File Queue Info --------------
+
+----------- Global Table and Hash Map Info --------------
+                Global Table X ...        0.335 Kb.	Keys X: 7
+                Global Table A ...        0.876 Kb.	Keys A: 2
+        Total (X + A + extras) ...      421.211 Kb.	Num Tables: 6
+
+                      Hash Map ...        0.000 Kb.
+
+----------- Multi Protocol Port - Allocation --------------
+------
+
+*** Message Pool Info ***
+Free             :2
+Posted In Accept :1
+Posted           :0
+Handled          :0
+Total            :3
+Buffer Memory    :61440bytes
+------
+
+*** Handle Pool Info ***
+Listen     = 1
+Accepting  = 1
+Close      = 1
+Total      = 3
+------
+                 IntClass List ...        0.000 Kb. Count 117
+                  IntFunc List ...        0.000 Kb. Count 1047
+                  APPMAP Array ...        0.000 Kb. Count 5
+
+
+----------- SmartHeap Pools Info ----------
+                   pooltString ...     5248.00 kB. Count 136361 Ok
+                  poolrContent ...    13312.00 kB. Count 234186 Ok
+                 pooltInstrVar ...    12480.00 kB. Count 148918 Ok
+                    pooltConst ...     3648.00 kB. Count  39881 Ok
+        poolrContentTypeSimple ...      512.00 kB. Count    358 Ok
+                  pooltDecimal ...      384.00 kB. Count      4 Ok
+                 pooltNamedVar ...     6336.00 kB. Count  24915 Ok
+                      pooltSum ...     2304.00 kB. Count  19791 Ok
+                  pooltCompare ...     1472.00 kB. Count   9223 Ok
+                 pooltLocalEnv ...     1536.00 kB. Count   2614 Ok
+        pooltInterFunctionCall ...     2176.00 kB. Count  13146 Ok
+       pooltDirectFunctionCall ...     1856.00 kB. Count  14243 Ok
+                   pooltApoReg ...    37440.00 kB. Count 262839 Ok
+               pooltAssignBase ...     2432.00 kB. Count  19916 Ok
+                pooltCodeBlock ...     1856.00 kB. Count   5805 Ok
+             pooltCodeBlockEnv ...      576.00 kB. Count    297 Ok
+             pooltCodeBlockRef ...     1152.00 kB. Count   1646 Ok
+           pooltCodeBlockInstr ...      576.00 kB. Count   1646 Ok
+                pooltClassData ...     1472.00 kB. Count   3951 Ok
+          pooltPrgFunctXRefEle ...    15680.00 kB. Count 488070 Ok
+               pooltIdentifier ...      896.00 kB. Count   6166 Ok
+          pooltNamedVarXVarRef ...      896.00 kB. Count   8072 Ok
+               pooltParmDefDet ...     1600.00 kB. Count  22571 Ok
+                  pooltVarList ...     3136.00 kB. Count  26854 Ok
+                 pooltStatList ...     1408.00 kB. Count   6944 Ok
+                 pooltParmList ...     4800.00 kB. Count  34059 Ok
+             pooltArrayElement ...      640.00 kB. Count   2030 Ok
+                   pooltBaseIf ...     1664.00 kB. Count  11372 Ok
+                   pooltMethod ...      832.00 kB. Count   3977 Ok
+               pooltFindObject ...     1024.00 kB. Count   4694 Ok
+                  pooltSelfVar ...      704.00 kB. Count   1333 Ok
+                pooltClassProp ...      512.00 kB. Count     92 Ok
+            pooltClassInstance ...      576.00 kB. Count    491 Ok
+               pooltMethodCall ...     1728.00 kB. Count   4657 Ok
+                   pooltReturn ...      640.00 kB. Count   2609 Ok
+                pooltStaticEnv ...     1856.00 kB. Count   2987 Ok
+               pooltPrivateEnv ...     1472.00 kB. Count   2416 Ok
+           pooltSrcSafeXRefEle ...    12480.00 kB. Count 257906 Ok
+                  poolMemLists ...    33408.00 kB. Count 151667 Ok
+                 poolMemStrRef ...    71744.00 kB. Count 131565 Ok
+                 poolMemStream ...     3584.00 kB. Count   3743 Ok
+           Default Memory Pool ...   197440.00 kB. Count 1139242 Ok
+
+           TOTAL POOLED MEMORY ...   456448.00 kB.
+
+
+----------- OS Memory Summary -------------
+MemTotal:        7672400 kB		MemFree:          710612 kB		
+Active:          1574760 kB		Inactive:        4460408 kB		
+SwapTotal:       4194300 kB		SwapFree:        2878084 kB		
+
+----------- APP Memory Summary ------------
+        Server Memory Capacity ...    32768.000 MB.
+      Service Addressed Memory ...     1877.398 MB.
+       Service Resident Memory ...      456.941 MB.
+
+2025-03-26T14:32:23.166027-03:00 1224348|
+[INFO ][SERVER] [Thread 1224348] [MEMORY] V-Load   0.06 - Peak  1913.28 MB. - SL 32768.00 MB.
+2025-03-26T14:32:23.167041-03:00 1224348|
+[INFO ][SERVER] [Thread 1224348] [MEMORY] R-Load   0.75 - Peak   612.79 MB. - SL   612.79 MB.
+2025-03-26T14:32:24.112724-03:00 1224911|[VDRPORT] 250326_143224 7F26B71F VSS0302 E sslRead fatal error 1 [SSL_ERROR_SSL]
+2025-03-26T14:32:24.113985-03:00 1224911|[VDRPORT] 250326_143224 7F26B71F VSS0789 E line=307 cmd=[SSL_read, alocated: 16384] error=336130204 msg=[error:1408F09C:SSL routines:ssl3_get_record:http request]
+2025-03-26T14:32:24.114916-03:00 1224911|[VDRPORT] 250326_143224 7F26B71F VSS0469 E ctx:602810 [@HANDSHAKE@] [VDR_SSL] onRecvHandshaking: error after sslRead
+2025-03-26T14:32:24.116846-03:00 1224911|[VDRPORT] 250326_143224 7F26B71F LPT0253 E ctx:602810 [@HANDSHAKE@] [VDR_LP] error 1 in server handshake
+2025-03-26T14:32:24.911496-03:00 1574049|[PALM] - ENVIO PARA APROVACAO cChave 0101SC000154                                            000028
+2025-03-26T14:32:24.921645-03:00 1574049|Force Tenant: 
+2025-03-26T14:32:25.334320-03:00 1573835|[PALM] Browse de Aprova��o - Usuario Admin (PLANETA)  Grupo:  UserId: 000000
+2025-03-26T14:32:25.337237-03:00 1573835|WITH ItemRanked AS ( 
+    SELECT 
+        SCR.CR_FILIAL, 
+        SCR.CR_NUM, 
+        SCR.CR_TIPO, 
+        SCR.CR_USER, 
+        SCR.CR_APROV, 
+        SCR.CR_GRUPO, 
+        SCR.CR_ITGRP, 
+        SCR.CR_NIVEL, 
+        SCR.CR_STATUS, 
+        SCR.CR_EMISSAO, 
+        SCR.CR_TOTAL, 
+        SCR.CR_DATALIB, 
+        SCR.CR_USERLIB, 
+        SCR.CR_LIBAPRO, 
+        SCR.CR_VALLIB, 
+        SCR.CR_TIPOLIM, 
+        SCR.CR_WF, 
+        SCR.CR_MOEDA, 
+        SCR.CR_TXMOEDA, 
+        SC1.C1_ITEM, 
+        '' AS PEDSTATUS, 
+        SC1.C1_CC, 
+        SC1.C1_DESCRI, 
+        ISNULL(CAST(CAST(SCR.CR_OBS AS VARBINARY(8000)) AS VARCHAR(8000)), '') AS CR_OBS, 
+        SCR.R_E_C_N_O_ AS RECSCR, 
+        ROW_NUMBER() OVER (PARTITION BY SC1.C1_ITEM ORDER BY SCR.CR_EMISSAO DESC) AS rn 
+    FROM 
+        SCR010 AS SCR (NOLOCK) 
+    LEFT JOIN 
+        SC1010 AS SC1 (NOLOCK) 
+        ON SC1.C1_NUM = SCR.CR_NUM AND SC1.D_E_L_E_T_ = '' 
+    WHERE 
+        SCR.D_E_L_E_T_ = '' 
+        AND SCR.CR_EMISSAO BETWEEN '20240326' AND '20250326' 
+        AND SCR.CR_USER = '000000' 
+        AND SCR.CR_FILIAL <> 'XX' 
+        AND SCR.CR_DATALIB = '' AND SCR.CR_STATUS = '02' 
+        AND SCR.CR_TIPO IN ('SC','PC') 
+) 
+SELECT 
+    CR_FILIAL, 
+    CR_NUM, 
+    CR_TIPO, 
+    CR_USER, 
+    CR_APROV, 
+    CR_GRUPO, 
+    CR_ITGRP, 
+    CR_NIVEL, 
+    CR_STATUS, 
+    CR_EMISSAO, 
+    CR_TOTAL, 
+    CR_DATALIB, 
+    CR_USERLIB, 
+    CR_LIBAPRO, 
+    CR_VALLIB, 
+    CR_TIPOLIM, 
+    CR_WF, 
+    CR_MOEDA, 
+    CR_TXMOEDA, 
+    C1_ITEM, 
+    PEDSTATUS, 
+    C1_CC, 
+    C1_DESCRI, 
+    CR_OBS, 
+    RECSCR 
+FROM 
+    ItemRanked 
+WHERE 
+    rn = 1 
+ORDER BY 
+    CR_TIPO, 
+    CR_NUM DESC, 
+    C1_ITEM 
+
+2025-03-26T14:32:25.346963-03:00 1573835|Force Tenant: 
+2025-03-26T14:32:29.260144-03:00 1573835|[PALM] - ENVIO PARA APROVACAO cChave 0101SC000154                                            000028
+2025-03-26T14:32:29.268300-03:00 1573835|[PALM] Inicio Gravacao da Rejeicao do Pedido de Compra !
+2025-03-26T14:32:31.307700-03:00 1574147|
+[INFO ][SSL] SSL callback where:[16] ret:[1] state:[before SSL initialization] version:[TLSv1.3] cipher:[(NONE)]
+2025-03-26T14:32:31.308902-03:00 1574147|
+[INFO ][SSL] SSL_connect:before SSL initialization
+2025-03-26T14:32:31.310133-03:00 1574147|
+[INFO ][SSL] SSL_connect:SSLv3/TLS write client hello
+2025-03-26T14:32:31.317510-03:00 1574147|
+[INFO ][SSL] SSL_connect:SSLv3/TLS write client hello
+2025-03-26T14:32:31.319008-03:00 1574147|
+[INFO ][SSL] SSL_connect:SSLv3/TLS read server hello
+2025-03-26T14:32:31.320241-03:00 1574147|
+[INFO ][SSL] SSL_connect:TLSv1.3 read encrypted extensions
+2025-03-26T14:32:31.321593-03:00 1574147|
+[INFO ][SSL] SSL_connect:SSLv3/TLS read server certificate
+2025-03-26T14:32:31.323550-03:00 1574147|
+[INFO ][SSL] SSL_connect:TLSv1.3 read server certificate verify
+2025-03-26T14:32:31.324703-03:00 1574147|
+[INFO ][SSL] SSL_connect:SSLv3/TLS read finished
+2025-03-26T14:32:31.325628-03:00 1574147|
+[INFO ][SSL] SSL_connect:SSLv3/TLS write change cipher spec
+2025-03-26T14:32:31.326763-03:00 1574147|
+[INFO ][SSL] SSL_connect:SSLv3/TLS write finished
