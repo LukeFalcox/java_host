@@ -26,5 +26,6 @@ public class UserModel {
   private String cpf;
   private String email;
   private String password;
+  private String token;
   private Double patrimonio;
 }
